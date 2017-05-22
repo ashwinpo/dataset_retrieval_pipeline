@@ -1,0 +1,44 @@
+>T1
+protein sequencing data related to bacterial chemotaxis
+
+>T2
+MIP-2 gene related to biliary atresia
+
+>T3
+gene TP53INP1 in relation to p53 activation
+
+>T4
+inflammation during oxidative stress in human hepatic cells
+
+>T5
+gene expression and genetic deletion data that mention CD69 in memory augmentation studies
+
+>T6
+the LDLR gene related to cardiovascular disease
+
+>T7
+gene expression datasets on photo transduction and regulation of calcium in blind D. melanogaster
+
+>T8
+proteomic data related to regulation of calcium in blind D. melanogaster
+
+>T9
+the ob gene in obese M. musculus
+
+>T10
+energy metabolism in obese M. musculus
+
+>T11
+HTT gene related to Huntington's disease
+
+>T12
+neural brain tissue in transgenic mice related to Huntington's disease
+
+>T13
+the SNCA gene related to Parkinson's disease
+
+>T14
+nerve cells in the substantia nigra in mice
+
+>T15
+NF-kappaB signaling pathway in MG (Myasthenia gravis) patients

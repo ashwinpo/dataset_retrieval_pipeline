@@ -1,0 +1,109 @@
+arrayexpress
+    dataItem.description
+    dataItem.title
+    dataItem.experimentType
+
+bioproject
+    dataItem.description
+    dataItem.keywords
+    dataItem.title
+
+cia
+    dataset.anatomicalPart.name
+    dataAcquisition.title
+    dataset.title
+    disease.name
+
+clinicaltrials
+    Dataset.description
+    Dataset.title
+    Dataset.keyword
+    Disease.name
+    Study.recruits.criteria
+    StudyGroup.description  
+    Treatment.description
+
+ctn
+    dataset.description
+    dataset.title
+    dataset.keywords
+
+cvrg
+    dataset.description
+    dataset.title
+
+dataverse
+    dataset.description
+    dataset.title
+    publication.description
+
+dryad
+    dataset.description
+    dataset.keywords
+    dataset.title
+
+gemma
+    dataItem.description
+    dataItem.source_name
+    dataItem.title
+
+geo
+    dataItem.description
+    dataItem.title
+
+mpd
+    dataset.description
+    dataset.title
+    dimension.name
+
+neuromorpho
+    dataset.note
+    dataset.title
+    treatment.title
+
+nursadatasets
+    dataset.description
+    dataset.keywords
+    dataset.title
+    publication.description
+
+openfmri
+    dataset.description
+    dataset.title
+
+pdb
+    dataItem.description
+    dataItem.title
+    dataItem.keywords
+    citation.title
+
+peptideatlas
+    dataset.description
+    dataset.title
+    treatment.description
+    
+phenodisco
+    title
+    topic
+    phenName
+    desc
+    phen
+    phenDesc
+    phenMap
+    disease
+    category
+
+physiobank
+    dataset.description
+    dataset.title
+    publication.name
+
+proteomexchange
+    dataset.title
+    publication.name
+    keywords    
+
+yped
+    dataset.description
+    dataset.title
+    

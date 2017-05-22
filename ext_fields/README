@@ -1,0 +1,5 @@
+## Run split_tasks.py to prepare data
+python split_tasks.py
+
+## Run ret.sh to collect additional information
+sh ret.sh
