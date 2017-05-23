@@ -1,8 +1,8 @@
 ''' calculate the actual P@10 with partial relevant and without partial relevant 
     from Xiaoling, UT Houston
 '''
-import os
-import sys
+import os, sys
+cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 def get_annotated_result(annotated_file):

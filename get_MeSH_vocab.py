@@ -6,7 +6,7 @@
     @author Wei Wei
 '''
 
-import os, re, time
+import os, re, time, sys
 from constants import *
 def analyze(inFile, outFile):
 
@@ -32,8 +32,11 @@ def analyze(inFile, outFile):
 
 
 if __name__ == "__main__":
-    utils_dir = os.path.join(data_base_dir, "utilities")
-    raw_mesh_file = os.path.join(utils_dir,"d2016.bin")
+    raw_mesh_file = sys.argv[1]# os.path.join(utils_dir,"d2016.bin")
+    utils_dir = sys.argv[2]
+    # = os.path.join(data_base_dir, "utilities")
+    # if not os.path.exists(utils_dir):
+    #     os.makedirs(utils_dir)
     vocab_file = os.path.join(utils_dir, "mesh_and_entry_vocab.txt")
 
     t0=time.time()

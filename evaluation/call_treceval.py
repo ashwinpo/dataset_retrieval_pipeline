@@ -3,6 +3,7 @@
 '''
 
 import subprocess, os, sys
+cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 if __name__=="__main__":

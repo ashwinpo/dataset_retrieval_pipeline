@@ -1,6 +1,6 @@
 ## distribute the tasks to multiple machines
 
-data_dir= $WORK_PATH/data/datamed_json
+data_dir=$WORK_PATH/data/datamed_json
 
 gap=1
 python arrayexpress.py $data_dir sub1 $gap &

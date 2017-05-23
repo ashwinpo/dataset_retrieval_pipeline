@@ -1,0 +1,61 @@
+1. Configure a VM
+    Set up a Ubuntu 14.04 system, need about 32 GB memory and 500GB disk. 
+
+    Set up your working path
+    	WORK_PATH = "/your/path/here/"
+    	cd $WORK_PATH
+    	mkdir $WORK_PATH/code $WORK_PATH/data $WORK_PATH/results $WORK_PATH/tools $WORK_PATH/downloads
+    Install Oracle JAVA JDK (https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get)
+        sudo apt-get install python-software-properties
+        sudo add-apt-repository ppa:webupd8team/java
+        sudo apt-get update
+        sudo apt-get install oracle-java8-installer
+        If you have multiple JAVA JDK installed on the VM, you may refer to this link for management tips: https://askubuntu.com/questions/233190/what-exactly-does-update-alternatives-do
+    Install Anaconda for Python 2.7 (https://docs.continuum.io/anaconda/install)
+        wget -P /tools https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh
+        bash ~/tools/Anaconda2-4.3.1-Linux-x86_64.sh
+    Install Python packages NLTK corpora/stopwords, NLTK punkt/english, Biopython
+        NLTK packages:
+            Option 1: python -m nltk.downloader all ## install all corpus and models
+            OPtion 2: python -m nltk.downloader ## enter an interactive interface and select the required packages
+        Biopython: 
+            conda install -c anaconda biopython=1.68
+    Install Elasticsearch 5.0.2 (ES) (https://www.elastic.co/guide/en/elasticsearch/reference/5.0/install-elasticsearch.html) 
+        cd $WORK_PATH/tools ## install ES under /tools
+        wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.2.tar.gz
+        sha1sum elasticsearch-5.0.2.tar.gz 
+        tar -xzf elasticsearch-5.0.2.tar.gz
+    Configure ES
+        Change the JVM heap size for ES (https://www.elastic.co/guide/en/elasticsearch/reference/5.0/heap-size.html)
+            edit $WORK_PATH/tools/elasticsearch-5.0.2/config/jvm.options
+            set both Xms and Xmx to a reasonable value, such as 10g: -Xms10, -Xmx10g
+        Add protected words to ES
+            wget -P $WORK_PATH/downloads ftp://nlmpubs.nlm.nih.gov/online/mesh/2016/asciimesh/d2016.bin          
+            mkdir $WORK_PATH/tools/elasticsearch-5.0.2/config/analysis 
+            ## call get_MeSH_vocab.py to generate "mesh_and_entry_vocab.txt"
+            python $WORK_PATH/code/get_MeSH_vocab.py $WORK_PATH/downloads/d2016.bin $WORK_PATH/tools/elasticsearch-5.0.2/config/analysis 
+            ## check if "mesh_and_entry_vocab.txt" is in $WORK_PATH/tools/elasticsearch-5.0.2/config/analysis
+        Start ES as a daemon process (https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
+            $WORK_PATH/tools/elasticsearch-5.0.2/bin/elasticsearch -d -p
+        Get ES status
+            curl -XGET '127.0.0.1:9200/_stats?pretty'  ## show general information
+            curl -XGET 'http://127.0.0.1:9200/_cat/indices?v' ## show all indices
+            curl -XGET 'http://127.0.0.1:9200/_count?pretty' ## count the documents in all indices
+			## delete an index
+			curl -XDELETE 'http://127.0.0.1:9200/index_name_here?pretty'
+
+2. Prepare data 
+    a. Metadata of datasets provided by the bioCADDIE Challenge
+        wget -P $WORK_PATH/data https://biocaddie.org/sites/default/files/update_json_folder.zip
+        unzip $WORK_PATH/data https://biocaddie.org/sites/default/files/update_json_folder.zip
+        mv $WORK_PATH/data/update_json_folder $WORK_PATH/data/datamed_json ## rename the decompressed directory datamed_json
+    b. Collect additional information for the datasets
+        mkdir $WORK_PATH/data/additional_fields
+        ## Run split_tasks.py to prepare data
+        cd $WORK_PATH/code/ext_fields
+        python split_tasks.py
+        ## Run ret.sh to collect additional information
+        sh ret.sh
+
+3. Run experiments
+    Bash scripts for experiments are under $WORK_PATH/code/experiments
