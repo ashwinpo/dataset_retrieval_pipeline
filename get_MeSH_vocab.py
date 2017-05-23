@@ -32,7 +32,7 @@ def analyze(inFile, outFile):
 
 
 if __name__ == "__main__":
-    utils_dir = os.path.join(data_base_dir, "utilies")
+    utils_dir = os.path.join(data_base_dir, "utilities")
     raw_mesh_file = os.path.join(utils_dir,"d2016.bin")
     vocab_file = os.path.join(utils_dir, "mesh_and_entry_vocab.txt")
 
