@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 from Bio import Entrez
 from geo import analyze_gse_html_for_pmid, analyze_gse_html_for_text
 from utils import get_html
-cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 def analyze_landing_html(html, rootURL, logging_html_dir, datasetID, datasetTtl):

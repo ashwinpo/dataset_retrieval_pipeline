@@ -9,7 +9,6 @@ import os,json, urllib2, re, logging, datetime, time, sys, cPickle
 from urlparse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from utils import get_html
-cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 def analyze_proteomexchange_html_for_text(html, rootURL, logging_html_dir, datasetID):
@@ -80,7 +79,7 @@ if __name__=="__main__":
     add_text_dir = os.path.join(ext_dir, "additional_fields") ## add_text==additional fields
     if not os.path.exists(add_text_dir):
         os.makedirs(add_text_dir)
-
+    repo="proteomexchange"
     ## identify source repo
     checkFile = os.path.join(log_dir, "./%s_check_docs.txt"%repo)
     try:

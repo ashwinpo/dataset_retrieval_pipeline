@@ -6,12 +6,11 @@
 '''
 
 from Bio import Entrez
-import os,json, urllib2, re, logging, datetime, sys, time, cPickle,sys
+import os,json, urllib2, re, logging, datetime, sys, time, cPickle
 from urlparse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from utils import get_html
 from geo import *
-cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 def analyze_gemma_json(inFile):
