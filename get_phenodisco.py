@@ -12,7 +12,8 @@ import multiprocessing as mp
 
 data_dir = os.path.join(data_base_dir,"datamed_json")
 outdir = os.path.join(data_base_dir,"phenodisco_raw")
-
+if not os.path.exists(outdir):
+    os.makedirs(outdir)
 def worker(docList):
     for fname in docList:
         fullpath = os.path.join(data_dir, fname)

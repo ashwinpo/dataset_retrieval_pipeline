@@ -3,9 +3,10 @@ import os, subprocess, json, sys
 from constants import *
 
 if __name__=="__main__":
-    datamed_json_dir = os.path.join(data_base_dir, "phenodisco_raw") #"/home/w2wei/data/biocaddie/data/phenodisco_raw"     
-    outdir = os.path.join(data_base_dir, "phenodisco_strict") # "/home/w2wei/data/biocaddie/data/phenodisco_strict"
-
+    datamed_json_dir = os.path.join(data_base_dir, "phenodisco_raw") 
+    outdir = os.path.join(data_base_dir, "phenodisco_strict") 
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
     phendisco_dts = os.listdir(datamed_json_dir)
     print "phendisco dataset num: ", len(phendisco_dts)
 

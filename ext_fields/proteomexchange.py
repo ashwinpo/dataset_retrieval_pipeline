@@ -9,6 +9,7 @@ import os,json, urllib2, re, logging, datetime, time, sys, cPickle
 from urlparse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from utils import get_html
+cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 def analyze_proteomexchange_html_for_text(html, rootURL, logging_html_dir, datasetID):

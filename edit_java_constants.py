@@ -1,10 +1,12 @@
 import os, re, sys
+from constants import *
+
+wkdir = os.path.join(code_dir, "rerank","PSD")
 
 query_file = sys.argv[1]
 ret_dir = sys.argv[2]
 out_dir = sys.argv[3]
 
-wkdir = "/home/w2wei/data/biocaddie/code/rerank/PSD"
 const_file = os.path.join(wkdir,"Constants.java")
 fin = file(const_file).readlines()
 

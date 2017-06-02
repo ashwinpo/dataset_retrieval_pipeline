@@ -16,10 +16,10 @@ data_op = sys.argv[1]
 if data_op=="all":
     print "Reformat metadata for PSD; it will take 30 min..."
     data_dir = os.path.join(data_base_dir,"datamed_json")
-    formatted_data_dir = os.path.join(data_base_dir, "datamed_json4rerank")# "/home/w2wei/data/biocaddie/data/datamed_json4rerank"
+    formatted_data_dir = os.path.join(data_base_dir, "datamed_json4rerank")
 if data_op=="phen": # for phenodisco datasets
-    data_dir = os.path.join(data_base_dir,"phenodisco_strict") #"/home/w2wei/data/biocaddie/data/phenodisco_strict"
-    formatted_data_dir = os.path.join(data_base_dir,"phenodisco_json4rerank_strict") # "/home/w2wei/data/biocaddie/data/phenodisco_json4rerank_strict"
+    data_dir = os.path.join(data_base_dir,"phenodisco_strict") 
+    formatted_data_dir = os.path.join(data_base_dir,"phenodisco_json4rerank_strict") 
     data_files = os.listdir(data_dir)
 if not os.path.exists(formatted_data_dir):
     os.makedirs(formatted_data_dir)

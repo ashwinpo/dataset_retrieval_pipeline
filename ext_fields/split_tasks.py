@@ -1,5 +1,6 @@
 import os,json,time,cPickle
 from pprint import pprint
+cwd =os.path.dirname(os.path.abspath(__file__))
 from constants import *
 
 def set_repo_dsID_dict(data_dir, out_file):
