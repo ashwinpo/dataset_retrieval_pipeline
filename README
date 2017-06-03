@@ -45,7 +45,7 @@
             curl -XGET 'http://127.0.0.1:9200/_count?pretty' ## count the documents in all indices
 			## delete an index
 			curl -XDELETE 'http://127.0.0.1:9200/index_name_here?pretty'
-    Install MetaMap
+    Install MetaMap (optional)
         ## follow the instruction from https://metamap.nlm.nih.gov/Installation.shtml
 
 2. Prepare data 
@@ -64,25 +64,22 @@
         python split_tasks.py
         ## Run ret.sh to collect additional information
         sh ret.sh
+    c. Re-generate keyword queries file kw_questions.txt for PSD-keywords(optional). 
+       *kw_questions.txt is already included under $WORK_PATH/code*
+        ## Create a file for each question
+        ## run metamap on each file using the default setting, save the output files.
+        cd $WORK_PATH/code/rerank/metamap
+        javac *.java
+        java KeyWordExtractor /path/to/your/metamap_output_file
+        ## Merge the results to generate kw_questions.txt
+    d. Re-generate google returned documents for the Distribution Shift method (optional)
+       *google_questions.txt is already included under $WORK_PATH/code*
+        ## make sure you have Graphic User Interface
+        ## Install Selenium tool from http://www.seleniumhq.org/
+        ## Update $WORK_PATH/code/rerank/dist_shift/Google.java according to the browser you use. Currently it uses Chrome by default.
+        ## javac *.java
+        java Google $WORK_PATH/code/all_questions.txt $WORK_PATH/code/google_questions.txt
 
 3. Run experiments
-    a. Prepare re-ranking queries,
-    if you plan to use PSD-allwords, 
-        ## use all_questions.txt
-    if you plan to use PSD-keywords,
-        ## run metamap on all_questions.txt, and output metamap processed documents
-        
-        ## call IO.java/IO.class, main.java/main.class to extract keywords from metamap output documents
-        ## Need 
-        java Main
-
-        ## get kw_questions.txt
-
-    if you plan to use Distribution Shift,
-        ## make sure your computer has Graphic User Interface
-        ## Install Selenium tool from http://www.seleniumhq.org/
-        ## Update Google.java according to the browser you use. Currently it uses Chrome by default.
-        java Google /path/all_questions.txt /path/google_questions.txt
-\
-    Bash scripts for experiments are under $WORK_PATH/code/experiments
-    Check $CODE_DIR/rerank/PSD/Constants.java, make sure all the paths are correct
+    ## Bash scripts for experiments are under $WORK_PATH/code/experiments
+    ## Check $CODE_DIR/rerank/PSD/Constants.java, make sure all the paths are correct

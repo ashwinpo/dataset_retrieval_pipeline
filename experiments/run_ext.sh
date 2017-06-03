@@ -3,7 +3,7 @@
 ## index suffix _ext_nostd
 
 ## Set up working directory
-    WK_DIR="/home/w2wei/data/biocaddie"
+    WK_DIR="/your/work/path"
     CODE_DIR=$WK_DIR/code
     DATA_DIR=$WK_DIR/data
     REST_DIR=$WK_DIR/results
@@ -37,7 +37,7 @@
 
 #2. Preprocess dataset metadata with fields longer than 32766 bytes, in particular, the Phenodisco datasets. The limit 32766 bytes is set by Elasticsearch
     ## make a copy of Phenodisco datasets from the original datasets
-    # python $CODE_DIR/get_phenodisco.py ## this script creates a dir phenodisco_raw under $DATA_DIR
+    python $CODE_DIR/get_phenodisco.py ## this script creates a dir phenodisco_raw under $DATA_DIR
     ## remove very long fields, output dir:$DATA_DIR/phenodisco_strict
     python $CODE_DIR/remove_long_fields.py 
     ## move processed phenodisco metadata to datamed_json

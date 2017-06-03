@@ -2,7 +2,7 @@
 ## index suffix _raw
 
 ## Set up working directory
-    WK_DIR="/home/w2wei/data/biocaddie"
+    WK_DIR="/your/work/path"
     CODE_DIR=$WK_DIR/code
     DATA_DIR=$WK_DIR/data
     REST_DIR=$WK_DIR/results
@@ -66,6 +66,3 @@
     ## Format results for trec_eval and sample_eval
     python $CODE_DIR/evaluation/format_es_results.py $MAN_ES_OUT T $MAN_ES_OUT
     python $CODE_DIR/evaluation/call_sample_eval.py $REST_DIR/es_results/$MAN_ES_OUT/T_es_results.trec > $REST_DIR/scores/$MAN_ES_OUT
-    ## infAP=
-    ## infNDCG=
-    ## iP10=

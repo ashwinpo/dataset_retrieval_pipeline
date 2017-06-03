@@ -4,7 +4,7 @@
 ## index suffix _std_ext
 
 ## Set up working directory
-    WK_DIR="/home/w2wei/data/biocaddie"
+    WK_DIR="/your/work/path"
     CODE_DIR=$WK_DIR/code
     DATA_DIR=$WK_DIR/data
     REST_DIR=$WK_DIR/results
